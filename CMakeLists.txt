@@ -133,6 +133,12 @@ include_directories(
 add_executable(simple_cpp_node src/simple_cpp_node.cpp)
 target_link_libraries(simple_cpp_node ${catkin_LIBRARIES})
 
+add_executable(simple_robot_transmitter src/simple_robot_transmitter.cpp)
+target_link_libraries(simple_robot_transmitter ${catkin_LIBRARIES})
+
+add_executable(simple_robot_receiver src/simple_robot_receiver.cpp)
+target_link_libraries(simple_robot_receiver ${catkin_LIBRARIES})
+
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
