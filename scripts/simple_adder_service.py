@@ -17,11 +17,11 @@ def handle_service_call(request):
 
 if __name__ == "__main__":
 
-    rospy.init_node("add_two_ints_service")
+    rospy.init_node("simple_adder_service")
     rospy.loginfo("[INFO] /add_two_ints_service created")
 
     service = rospy.Service("/add_two_ints", AddTwoInts, handle_service_call)
-    rospy.loginfo("[INFO] /add_two_ints_service started")
+    rospy.loginfo("[INFO] /simple_adder_service started")
     rospy.loginfo("[INFO] waiting for client calls ...")
 
     # Spin here until killed
