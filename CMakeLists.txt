@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  rospy_tutorials
 )
 
 ## System dependencies are found with CMake's conventions
@@ -138,6 +139,12 @@ target_link_libraries(simple_robot_transmitter ${catkin_LIBRARIES})
 
 add_executable(simple_robot_receiver src/simple_robot_receiver.cpp)
 target_link_libraries(simple_robot_receiver ${catkin_LIBRARIES})
+
+add_executable(simple_adder_service src/simple_adder_service.cpp)
+target_link_libraries(simple_adder_service ${catkin_LIBRARIES})
+
+add_executable(simple_adder_client src/simple_adder_client.cpp)
+target_link_libraries(simple_adder_client ${catkin_LIBRARIES})
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
