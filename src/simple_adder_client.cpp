@@ -21,12 +21,12 @@ int main(int argc, char **argv)
 
     ros::ServiceClient client = nh.serviceClient<rospy_tutorials::AddTwoInts>("/add_two_ints");
     
-    rospy_tutorials::AddTwoInts msg;
-    msg.request.a = 7;
-    msg.request.b = 8;
+    rospy_tutorials::AddTwoInts srv;
+    srv.request.a = 7;
+    srv.request.b = 8;
 
-    if (client.call(msg)) {
-        ROS_INFO("[RESULT] Sum = %d", int(msg.response.sum));
+    if (client.call(srv)) {
+        ROS_INFO("[RESULT] Sum = %d", int(srv.response.sum));
     } else {
         ROS_WARN("[ERROR] Service call failed");
     }
