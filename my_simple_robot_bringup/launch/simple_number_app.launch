@@ -1,0 +1,7 @@
+<launch>
+<param name="/number_publish_frequency" type="double" value="3.0" />
+<param name="/number_to_publish" type="int" value="10" />
+
+<node name="simple_number_publisher_with_param" pkg="my_simple_robot_nodes" type="simple_number_publisher_with_param.py" />
+<node name="simple_number_sub_pub_srv" pkg="my_simple_robot_nodes" type="simple_number_sub_pub_srv" />
+</launch>

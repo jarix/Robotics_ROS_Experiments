@@ -18,7 +18,19 @@ int main (int argc, char **argv)
 	ros::NodeHandle nh;
 
 	ros::Publisher pub = nh.advertise<std_msgs::Int64>("/number", 10);
-	ros::Rate rate(0.2);    // publish every 5 seconds
+
+	double publish_freq;
+	try {
+		nh.getParam("/number_publish_frequency", publish_freq);
+	}
+	catch (const std::runtime_error &ex)
+	{
+		ROS_INFO("[ERROR] Reading of /number_publish_frequency failed.");
+		publish_freq = 1;
+	}
+	ros::Rate rate(publish_freq); 
+
+	nh.setParam("/number_publish_message", "Hi, there!");   
 
 	ROS_INFO("[INFO] simple_number_publisher started");
 

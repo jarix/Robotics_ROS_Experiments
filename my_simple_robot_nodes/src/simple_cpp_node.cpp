@@ -21,10 +21,10 @@ int main(int argc, char **argv)
     // Get Node Handle
     ros::NodeHandle nh;
 
-    ROS_INFO("simple_cpp_node started");
+    ROS_INFO("[INFO] simple_cpp_node started");
 
     ros::Duration(0.5).sleep();   // Sleep half a second
-    ROS_INFO("simple_cpp_node ready");
+    ROS_INFO("[INFO] simple_cpp_node ready");
 
     ros::Rate rate(10);  // Set execution rate to 10Hz
     int count = 0;

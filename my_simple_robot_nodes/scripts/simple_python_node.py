@@ -11,16 +11,16 @@ if __name__ == "__main__":
     
     # Initialize Node
     rospy.init_node("simple_python_node")
-    rospy.loginfo("simple_python_node has started")
+    rospy.loginfo("[INFO] simple_python_node has started")
 
     rospy.sleep(0.5)  # Sleep 0.5 seconds
-    rospy.loginfo("my_first_python_node ready")    
+    rospy.loginfo("[INFO] my_first_python_node ready")    
 
     rate = rospy.Rate(10)  # Set execution rate to 10 Hz
     count = 0
 
     while not rospy.is_shutdown():
-        msg = "Hello from simple_python_node, #%d" % count
+        msg = "[INFO] Hello from simple_python_node, #%d" % count
         rospy.loginfo(msg)
         count += 1
         rate.sleep()   # Sleep to keep 10Hz rate

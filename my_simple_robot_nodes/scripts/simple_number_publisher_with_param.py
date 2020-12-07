@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
     ROS publisher node publishing an incrementing number 
+	Reads the publish rate from ROS Parameter server
     
     Author: Jari Honkanen
 """
@@ -15,7 +16,15 @@ if __name__ == '__main__':
 
 	rospy.loginfo("[INFO] simple_number_publisher started")
 
-	rate = rospy.Rate(0.2)    # Publish every 5 seconds
+	try:
+		publish_freq = rospy.get_param("/number_publish_frequency")   # Rate in Hz
+	except KeyError as e:
+		rospy.logwarn("[ERROR] getting number_publish_frequency failed")
+		publish_freq = 1
+
+	rate = rospy.Rate(publish_freq) 
+
+	rospy.set_param("/number_publisher_message", "Hi, there!")
 
 	number = 1
 

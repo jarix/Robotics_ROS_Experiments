@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     rospy.init_node("simple_robot_transmitter")
 
-    rospy.loginfo("simple_robot_transmitter Node started")
+    rospy.loginfo("[INFO] simple_robot_transmitter Node started")
 
     # publisher with message name, message type, Queue size
     pub = rospy.Publisher("/robot_news", String, queue_size=10)
@@ -31,4 +31,4 @@ if __name__ == "__main__":
         count += 1
         rate.sleep()
 
-    rospy.loginfo("simple_robot_transmitter Node stopped")
+    rospy.loginfo("[INFO] simple_robot_transmitter Node stopped")

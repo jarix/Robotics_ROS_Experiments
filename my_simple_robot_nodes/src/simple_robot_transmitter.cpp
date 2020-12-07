@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     // Initialize node
     ros::init(argc, argv, "simple_robot_transmitter");
 
-    ROS_INFO("simple_robot_transmitter started");
+    ROS_INFO("[INFO] simple_robot_transmitter started");
 
     // Instantiate node handle
     ros::NodeHandle nh;

@@ -17,7 +17,7 @@
 // Callback function for receiving messages
 void callback_receive_message(const std_msgs::String &msg)
 {
-    ROS_INFO("Message Received: '%s'", msg.data.c_str());
+    ROS_INFO("[INFO] Message Received: '%s'", msg.data.c_str());
 }
 
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     // Initialize node
     ros::init(argc, argv, "simple_robot_receiver");
 
-    ROS_INFO("simple_robot_receiver started");
+    ROS_INFO("[INFO] simple_robot_receiver started");
 
     // Instantiate node handle
     ros::NodeHandle nh;

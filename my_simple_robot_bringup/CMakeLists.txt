@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(my_simple_robot_nodes)
+project(my_simple_robot_bringup)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -7,13 +7,7 @@ project(my_simple_robot_nodes)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
-  std_srvs
-  rospy_tutorials
-)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -72,7 +66,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -106,8 +100,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES robotics_ros_experiments
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  LIBRARIES my_simple_robot_bringup
+#  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
 
@@ -119,12 +113,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
+# ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/robotics_ros_experiments.cpp
+#   src/${PROJECT_NAME}/my_simple_robot_bringup.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -132,35 +126,10 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-add_executable(simple_cpp_node src/simple_cpp_node.cpp)
-target_link_libraries(simple_cpp_node ${catkin_LIBRARIES})
-
-add_executable(simple_robot_transmitter src/simple_robot_transmitter.cpp)
-target_link_libraries(simple_robot_transmitter ${catkin_LIBRARIES})
-
-add_executable(simple_robot_receiver src/simple_robot_receiver.cpp)
-target_link_libraries(simple_robot_receiver ${catkin_LIBRARIES})
-
-add_executable(simple_adder_service src/simple_adder_service.cpp)
-target_link_libraries(simple_adder_service ${catkin_LIBRARIES})
-
-add_executable(simple_adder_client src/simple_adder_client.cpp)
-target_link_libraries(simple_adder_client ${catkin_LIBRARIES})
-
-add_executable(simple_number_publisher src/simple_number_publisher.cpp)
-target_link_libraries(simple_number_publisher ${catkin_LIBRARIES})
-
-add_executable(simple_number_sub_pub_srv src/simple_number_sub_pub_srv.cpp)
-target_link_libraries(simple_number_sub_pub_srv ${catkin_LIBRARIES})
-
-add_executable(simple_number_publisher_with_param src/simple_number_publisher_with_param.cpp)
-target_link_libraries(simple_number_publisher_with_param ${catkin_LIBRARIES})
-
-
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/robotics_ros_experiments_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/my_simple_robot_bringup_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -224,7 +193,7 @@ target_link_libraries(simple_number_publisher_with_param ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_robotics_ros_experiments.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_my_simple_robot_bringup.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
